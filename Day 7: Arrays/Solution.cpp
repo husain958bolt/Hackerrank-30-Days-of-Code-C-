@@ -4,38 +4,25 @@ using namespace std;
 
 vector<string> split_string(string);
 
-// Complete the solve function below.
-int solve(int p, int q, int n) {
-
-
-}
-
 int main()
 {
-    ofstream fout(getenv("OUTPUT_PATH"));
-
-    int t;
-    cin >> t;
+    int n;
+    cin >> n;
     cin.ignore(numeric_limits<streamsize>::max(), '\n');
 
-    for (int t_itr = 0; t_itr < t; t_itr++) {
-        string pqn_temp;
-        getline(cin, pqn_temp);
+    string arr_temp_temp;
+    getline(cin, arr_temp_temp);
 
-        vector<string> pqn = split_string(pqn_temp);
+    vector<string> arr_temp = split_string(arr_temp_temp);
 
-        int p = stoi(pqn[0]);
+    vector<int> arr(n);
 
-        int q = stoi(pqn[1]);
+    for (int i = 0; i < n; i++) {
+        int arr_item = stoi(arr_temp[i]);
 
-        int n = stoi(pqn[2]);
-
-        int result = solve(p, q, n);
-
-        fout << result << "\n";
+        arr[i] = arr_item;
+        cout << arr[i] << " ";
     }
-
-    fout.close();
 
     return 0;
 }
@@ -66,5 +53,6 @@ vector<string> split_string(string input_string) {
 
     splits.push_back(input_string.substr(i, min(pos, input_string.length()) - i + 1));
 
+    reverse(splits.begin(), splits.end());
     return splits;
 }
